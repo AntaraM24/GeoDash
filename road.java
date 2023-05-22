@@ -10,26 +10,40 @@ import javax.swing.Timer.*;
  
 
 
-public class road extends JPanel implements ActionListener  {
+public class road extends JPanel implements ActionListener, KeyListener   {
     private int objX = 600; // stores x of obstacle
-    private int ballY; //stores y of character
+    private int ballY = 230; //stores y of character
     private int windowWidth = 600;
     private int windowHeight = 400;
 
+
+    ball b = new ball();
+    
 
     public road(){
         JFrame easel = new JFrame();
         easel.setSize(windowWidth, windowHeight);
         easel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         easel.add(this);
+        addKeyListener(this);  
         easel.setVisible(true);
 
-
-        javax.swing.Timer timer = new javax.swing.Timer(100, this);
+        javax.swing.Timer timer = new javax.swing.Timer(15, this);
         timer.start(); 
-
-      
     }
+
+    // overriding the keyPressed() method of KeyListener interface where we set the text of the label when key is pressed  
+    public void keyPressed (KeyEvent e) {    
+        b.setText ("Key Pressed");    
+    }    
+// overriding the keyReleased() method of KeyListener interface where we set the text of the label when key is released  
+    public void keyReleased (KeyEvent e) {    
+        b.setText ("Key Released");    
+    }    
+// overriding the keyTyped() method of KeyListener interface where we set the text of the label when a key is typed  
+    public void keyTyped (KeyEvent e) {    
+        b.setText ("Key Typed");    
+    }    
 
     public void paintComponent (Graphics g){
 
@@ -42,13 +56,7 @@ public class road extends JPanel implements ActionListener  {
 
         g.drawOval(100, ballY, 20, 20); // character
 
-        
-
-
-
-
-        objX -= 3;
-        
+        objX -= .5;  
     }
     
 
@@ -56,6 +64,8 @@ public class road extends JPanel implements ActionListener  {
         repaint();
         
     }
+
+
     
 
         
