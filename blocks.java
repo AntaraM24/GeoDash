@@ -12,6 +12,7 @@ public class blocks {
 
     public void drawBlock (Graphics g){
         if(objX <= 0){     
+            //this is for deleting the blocks that re at the end of the board
         }
         g.drawRect(objX, 240, 10, 10); // short obstacle
        
