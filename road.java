@@ -13,6 +13,7 @@ public class road extends JPanel implements ActionListener, KeyListener   {
     blocks bloc = new blocks();
     int count = 0;
 
+
     
 
     public road(){
@@ -49,16 +50,21 @@ public class road extends JPanel implements ActionListener, KeyListener   {
         
         
     }
-    public void keyPressed (KeyEvent e) { 
-
-
+    public void keyPressed (KeyEvent e) {
+        int key = e.getKeyCode();
         
+        if (key == KeyEvent.VK_SPACE) {
+            b.jump(getGraphics());
+            
+        }
 
     }
-    public void keyReleased (KeyEvent e) {    
+    
+    public void keyTyped (KeyEvent e) {
+    }
+    public void keyReleased (KeyEvent e) { 
     }    
-    public void keyTyped (KeyEvent e) {    
-    } 
+     
     
 
     public void actionPerformed(ActionEvent e) {
