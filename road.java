@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import java.awt.geom.Area;
+
 
 
 public class road extends JPanel implements ActionListener, KeyListener   {
@@ -11,8 +13,6 @@ public class road extends JPanel implements ActionListener, KeyListener   {
     ball b = new ball();
     blocks bloc = new blocks();
     static int count = 0; // time
-    public boolean press = false; //if space key is pressed, true.
-    int num = 0; // for animating jumping ball in paintComponent
    
 
 
@@ -30,6 +30,8 @@ public class road extends JPanel implements ActionListener, KeyListener   {
         
         javax.swing.Timer timer = new javax.swing.Timer(15, this);
         timer.start(); 
+        
+
     }
 
     public int getTime(){
@@ -41,36 +43,28 @@ public class road extends JPanel implements ActionListener, KeyListener   {
     public void paintComponent (Graphics g){
         count++;
         
+        
+        g.setColor(Color.gray);
+        g.fillRect(0, 250, 600, 250);
 
         g.drawLine(0, 250, 600, 250); // road
+
+        g.setColor(Color.blue);
         bloc.drawBlock(g);
 
-        if(count%100 == 0){
+        if(count%100 == 0){ 
             bloc.generateBlocks(g);
         }
 
 
-
-        
-        if(press){ // jumping ball animation , i tried doing it in ball class but it wasn't working idk why
-            if(num <=25){
-                b.setBallY(-2);
-                b.draw(g);
-                num++;
-            }
-            else if(num > 25  && num <= 51){
-                b.setBallY(2);
-                b.draw(g);
-                num++;  
-            }
-            else{
-                press = false;
-                num = 0;
-            }
+        if(b.press){ 
+            b.ballJump(g);
         } 
         else{
             b.draw(g);
-        }
+        }        
+
+
         
 
         
@@ -79,39 +73,25 @@ public class road extends JPanel implements ActionListener, KeyListener   {
         
         
     }
+
+    
+
+
     public void keyPressed (KeyEvent e) {
         int key = e.getKeyCode();
-        
         if (key == KeyEvent.VK_SPACE) {
-            press = true;
-
-
-            
+            b.press = true;
         }
-
     }
     
-    public void keyTyped (KeyEvent e) {
-    }
-    public void keyReleased (KeyEvent e) { 
-
-    }    
+    public void keyTyped (KeyEvent e) {}
+    public void keyReleased (KeyEvent e) {}    
      
     
 
     public void actionPerformed(ActionEvent e) {
         repaint();
-        
     }
-
-
-    
-
-        
-
-
-
-    
 }
    
 
