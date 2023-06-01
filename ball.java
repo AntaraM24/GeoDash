@@ -15,6 +15,15 @@ public class ball {
         g.fillOval(100, ballY, 20, 20);
         g.setColor(Color.black);
         g.drawOval(100, ballY, 20, 20); // character
+        
+    }
+
+    public int getCenterX(){
+        return 110;
+    }
+
+    public int getCenterY(){
+        return ballY+10;
     }
 
 
