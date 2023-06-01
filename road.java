@@ -53,6 +53,8 @@ public class road extends JPanel implements ActionListener, KeyListener   {
         bloc.drawBlock(g);
 
         if(count%100 == 0){ 
+            System.out.println("test");
+
             bloc.generateBlocks(g);
         }
 
@@ -64,15 +66,13 @@ public class road extends JPanel implements ActionListener, KeyListener   {
             b.draw(g);
         }        
 
-
-        
-
-        
         //         (x,, y - side length, side length, side length)
 
-        
-        
     }
+
+
+    public boolean compareDistances();
+    
 
     
 

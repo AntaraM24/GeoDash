@@ -4,17 +4,22 @@ import java.util.*;
 
 public class blocks {
 
-    private int objX = 600; // stores x of obstacle
+    private int objX; // stores x of obstacle
     //int nextBlocks[10];
-   
+    private String tall;
 
+
+   
+    public blocks(int objX, String tall){
+        
+    }
 
 
     public void drawBlock (Graphics g){
         if(objX <= 0){     
             //this is for deleting the blocks that re at the end of the board
         }
-        g.drawRect(objX, 240, 10, 10); // short obstacle
+        g.drawOval(objX, 240, 10, 10); // short obstacle
         
        
         objX -= .5;  
@@ -28,14 +33,13 @@ public class blocks {
      public void drawTallBlock (Graphics g){
         if(objX <= 0){
         }
-        g.drawRect(objX, 230, 10, 20); // tall obstacle
+        g.drawOval(objX, 230, 10, 20); // tall obstacle
 
         objX -= .5;  
     }
 
     public void generateBlocks(Graphics g){
         //600 length
-        System.out.println("test");
        
             int num = (int)Math.random()*2;
 
