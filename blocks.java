@@ -33,7 +33,6 @@ public class blocks {
         if (nextBlocks.size() != 10){
             for (int i = 0; i < 10; i++){
                 int random = (int)Math.floor(Math.random() * 11);
-                System.out.println(random);
                     if (random == 0 || random == 1){
                         height = "short";
                     } else if (random == 2){
@@ -42,7 +41,6 @@ public class blocks {
                         height = "none";
                     }
                 nextBlocks.add(new blocks(x, height));
-                System.out.println(height);
                 x += 50;
             }
         }
@@ -66,8 +64,6 @@ public class blocks {
         for (blocks b: nextBlocks){
             
             if ((b.getHeight()).equals("short")){
-                System.out.println("test1");
-                System.out.println(b.getObjX());
                 g.drawOval(b.getObjX(), 240, 10, 10);
                 b.incrementObjX(1);
             } else if ((b.getHeight()).equals("tall")){        

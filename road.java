@@ -88,6 +88,8 @@ public class road extends JPanel implements ActionListener, KeyListener   {
 
         //int distance = ((b.getCenterX() - bloc.getCenterX())^2 + (b.getCenterY() - bloc.getCenterY())^2)
 
+ 
+
 
         return true;
 
